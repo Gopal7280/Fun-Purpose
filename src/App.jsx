@@ -235,7 +235,6 @@ function EnvelopePage({ onNext }) {
           border:"1.5px solid rgba(59,130,246,.22)",
           boxShadow: opened ? "0 20px 60px rgba(59,130,246,.22)" : undefined,
           animation: opened ? "none" : "envGlow 2.5s ease-in-out infinite",
-          overflow:"hidden",
         }}>
           {/* V-crease lines */}
           <div style={{ position:"absolute", bottom:0, left:0, width:"50%", height:"50%",
@@ -274,7 +273,7 @@ function EnvelopePage({ onNext }) {
         {photoIn && (
           <div style={{
             position:"absolute", top:"-15px", left:"50%", transform:"translateX(-50%)",
-            width:"118px", height:"128px", zIndex:5,
+            width:"118px", height:"128px", zIndex:20,
             animation:"photoRise .8s cubic-bezier(.34,1.4,.64,1) both",
           }}>
             <img src={PHOTO_ENVELOPE} alt="Diya" style={{
