@@ -1,62 +1,146 @@
-
 @import "tailwindcss";
 
-
-body {
-  @apply bg-gradient-to-br from-pink-200 via-pink-100 to-rose-200 min-h-screen;
-}
-
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body {
-  background: linear-gradient(-45deg, #ff9ecf, #ffc3e6, #ffd6ec, #ffb7dd);
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
-}
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
-  to {
-    transform: rotate(360deg);
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #faf7f5;
+    color: #2d262b;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100%;
+    min-height: 100dvh;
+    touch-action: manipulation;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* ─── TYPOGRAPHY CLASSES ─── */
+.font-cursive {
+  font-family: 'Great Vibes', cursive;
+}
+.font-serif-luxury {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ─── BALLOON ANIMATION ─── */
+@keyframes floatUp {
+  0% {
+    transform: translateY(115vh) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30vh) rotate(15deg);
+    opacity: 0;
   }
 }
 
-.card {
-  padding: 2em;
+.balloon-fly {
+  animation-name: floatUp;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  animation-iteration-count: infinite;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+/* ─── FAIRY LIGHTS TWINKLE ─── */
+@keyframes fairyGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px rgba(255, 220, 100, 0.9));
+  }
+}
+
+.fairy-bulb {
+  animation: fairyGlow 2.5s ease-in-out infinite;
+}
+
+/* ─── CANDLE FLAME FLICKER ─── */
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+  }
+  25% {
+    transform: scale(1.08, 1.15) rotate(1deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.92, 0.85) rotate(-2deg);
+    opacity: 0.85;
+  }
+  75% {
+    transform: scale(1.05, 1.1) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+.flame-flicker {
+  animation: candleFlicker 0.9s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* ─── FRAME HOVER & REALISTIC DROP SHADOW ─── */
+.wall-frame {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.wall-frame:hover {
+  transform: translateY(-6px) scale(1.03) !important;
+  box-shadow: 0 20px 35px -8px rgba(190, 24, 93, 0.2), 0 12px 16px -6px rgba(0, 0, 0, 0.12);
+  z-index: 30;
+}
+
+/* ─── KNIFE CUTTING ANIMATION ─── */
+@keyframes sliceCake {
+  0% {
+    transform: translate(-30px, -60px) rotate(-35deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(15px, 25px) rotate(10deg);
+  }
+  80% {
+    transform: translate(25px, 40px) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(40px, 60px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+.knife-slice {
+  animation: sliceCake 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ─── SMOOTH PULSE GLOW ─── */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(244, 63, 94, 0.3), 0 0 30px rgba(251, 191, 36, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(244, 63, 94, 0.5), 0 0 45px rgba(251, 191, 36, 0.4);
+  }
+}
+
+.center-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
